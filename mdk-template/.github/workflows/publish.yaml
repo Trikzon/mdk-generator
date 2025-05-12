@@ -1,0 +1,79 @@
+name: Publish
+on:
+  push:
+    tags:
+      - "*"
+env:
+  DIONTRYBAN_MAVEN_USER: github
+  DIONTRYBAN_MAVEN_TOKEN: ${{ secrets.DIONTRYBAN_MAVEN_TOKEN }}
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: checkout repository
+        uses: actions/checkout@v2
+      - name: validate gradle wrapper
+        uses: gradle/wrapper-validation-action@v1
+      - name: setup jdk %MDKG_PROJECT_JAVA_VERSION%
+        uses: actions/setup-java@v1
+        with:
+          java-version: "%MDKG_PROJECT_JAVA_VERSION%"
+      - name: make gradle wrapper executable
+        if: ${{ runner.os != 'Windows' }}
+        run: chmod +x ./gradlew
+      - name: build
+        run: ./gradlew build
+      - uses: BrycensRanch/read-properties-action@v1
+        id: gradle_props
+        with:
+          file: gradle.properties
+          all: true
+      - name: Publish NeoForge to CurseForge and Modrinth
+        uses: Kir-Antipov/mc-publish@v3.3  # https://github.com/Kir-Antipov/mc-publish
+        with:
+          curseforge-id: %MDKG_MOD_CURSEFORGE_ID%
+          curseforge-token: ${{ secrets.CURSEFORGE_TOKEN }}
+          modrinth-id: %MDKG_MOD_MODRINTH_ID%
+          modrinth-token: ${{ secrets.MODRINTH_TOKEN }}
+          modrinth-featured: false
+          files: |
+            neoforge/build/libs/!(*-@(dev|sources|javadoc)).jar
+          loaders: |
+            neoforge
+          game-versions: |
+            %MDKG_COMMON_MINECRAFT_VERSION%
+          java: %MDKG_PROJECT_JAVA_VERSION%
+          name: "[NeoForge ${{ steps.gradle_props.outputs.minecraft_version }}] v${{ steps.gradle_props.outputs.version }}"
+          version: "${{ steps.gradle_props.outputs.version }}-neoforge"
+          changelog-file: "MINI_CHANGELOG.md"
+          dependencies: "%MDKG_NEOFORGE_DEPENDENCIES%"
+      - name: Publish Fabric to CurseForge and Modrinth
+        uses: Kir-Antipov/mc-publish@v3.3  # https://github.com/Kir-Antipov/mc-publish
+        with:
+          curseforge-id: %MDKG_MOD_CURSEFORGE_ID%
+          curseforge-token: ${{ secrets.CURSEFORGE_TOKEN }}
+          modrinth-id: %MDKG_MOD_MODRINTH_ID%
+          modrinth-token: ${{ secrets.MODRINTH_TOKEN }}
+          modrinth-featured: false
+          files: |
+            fabric/build/libs/!(*-@(dev|sources|javadoc)).jar
+          loaders: |
+            fabric
+            quilt
+          game-versions: |
+            %MDKG_COMMON_MINECRAFT_VERSION%
+          java: %MDKG_PROJECT_JAVA_VERSION%
+          name: "[Fabric ${{ steps.gradle_props.outputs.minecraft_version }}] v${{ steps.gradle_props.outputs.version }}"
+          version: "${{ steps.gradle_props.outputs.version }}-fabric"
+          changelog-file: "MINI_CHANGELOG.md"
+          dependencies: "%MDKG_FABRIC_DEPENDENCIES%"
+      - name: Publish All to Maven
+        run: ./gradlew publish
+      - name: Upload release assets
+        uses: softprops/action-gh-release@v1
+        if: startsWith(github.ref, 'refs/tags/')
+        with:
+          files: |
+            neoforge/build/libs/!(*-@(dev|sources|javadoc)).jar
+            fabric/build/libs/!(*-@(dev|sources|javadoc)).jar
+          body_path: MINI_CHANGELOG.md

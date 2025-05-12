@@ -1,0 +1,4 @@
+plugins {
+    id 'fabric-loom' version '%MDKG_FABRIC_LOOM_VERSION%' apply false
+    id 'net.neoforged.moddev' version '%MDKG_NEOFORGE_MODDEVGRADLE_VERSION%' apply false
+}
