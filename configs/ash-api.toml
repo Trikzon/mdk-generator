@@ -1,0 +1,45 @@
+[project]
+# should be the same as the project directory
+name = "ash-api"
+group = "com.diontryban.ash_api"
+java_version = "21"
+gradle_version = "8.12"
+
+[mod]
+id = "ash_api"
+name = "Ash API"
+author = "Trikzon"
+version = "21.0.3"
+license = "LGPL-3.0-or-later"
+credits = ""
+description = "An API that provides an abstraction layer between the APIs of NeoForge and Fabric."
+curseforge_id = "838498"
+modrinth_id = "Q8xUICr6"
+
+[common]
+minecraft_version = "1.21"
+minecraft_version_range = "[1.21, 1.22)"
+# https://projects.neoforged.net/neoforged/neoform
+neoform_version = "1.21-20240613.152323"
+# https://ldtteam.jfrog.io/ui/native/parchmentmc-public/org/parchmentmc/data/
+parchment_minecraft_version = "1.21"
+parchment_version = "2024.11.10"
+# https://maven.diontryban.com/#/releases/com/diontryban/ash_api
+ash_version = ""
+
+[fabric]
+# https://fabricmc.net/develop/
+version = "0.102.0+1.21"
+loader_version = "0.16.14"
+loom_version = "1.10-SNAPSHOT"
+# https://modrinth.com/mod/modmenu/versions
+modmenu_version = "11.0.3"
+dependencies = "fabric-api"
+
+[neoforge]
+# https://projects.neoforged.net/neoforged/neoforge
+version = "21.0.167"
+loader_version_range = "[4,)"
+# https://projects.neoforged.net/neoforged/moddevgradle
+moddevgradle_version = "2.0.88"
+dependencies = ""
