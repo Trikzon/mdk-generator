@@ -49,6 +49,8 @@ dependencies {
     if (project.ash_version != "") {
         implementation "com.diontryban.ash_api:ash_api-neoforge:${project.ash_version}"
     }
+
+%MDKG_NEOFORGE_GRADLE_DEPENDENCIES%
 }
 
 sourceSets.main.resources { srcDir 'src/generated/resources' }

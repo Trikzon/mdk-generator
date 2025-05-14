@@ -26,6 +26,7 @@ parchment_minecraft_version = "1.21"
 parchment_version = "2024.11.10"
 # https://maven.diontryban.com/#/releases/com/diontryban/ash_api
 ash_version = "21.0.4"
+gradle_dependencies = """"""
 
 [fabric]
 # https://fabricmc.net/develop/
@@ -34,7 +35,8 @@ loader_version = "0.16.14"
 loom_version = "1.10-SNAPSHOT"
 # https://modrinth.com/mod/modmenu/versions
 modmenu_version = "11.0.3"
-dependencies = "ash-api"
+publish_dependencies = "ash-api"
+gradle_dependencies = """"""
 
 [neoforge]
 # https://projects.neoforged.net/neoforged/neoforge
@@ -42,4 +44,5 @@ version = "21.0.167"
 loader_version_range = "[4,)"
 # https://projects.neoforged.net/neoforged/moddevgradle
 moddevgradle_version = "2.0.88"
-dependencies = "ash-api"
+publish_dependencies = "ash-api"
+gradle_dependencies = """"""

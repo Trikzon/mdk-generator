@@ -44,7 +44,7 @@ jobs:
           name: "[NeoForge ${{ steps.gradle_props.outputs.minecraft_version }}] v${{ steps.gradle_props.outputs.version }}"
           version: "${{ steps.gradle_props.outputs.version }}-neoforge"
           changelog-file: "MINI_CHANGELOG.md"
-          dependencies: "%MDKG_NEOFORGE_DEPENDENCIES%"
+          dependencies: "%MDKG_NEOFORGE_PUBLISH_DEPENDENCIES%"
       - name: Publish Fabric to CurseForge and Modrinth
         uses: Kir-Antipov/mc-publish@v3.3  # https://github.com/Kir-Antipov/mc-publish
         with:
@@ -64,7 +64,7 @@ jobs:
           name: "[Fabric ${{ steps.gradle_props.outputs.minecraft_version }}] v${{ steps.gradle_props.outputs.version }}"
           version: "${{ steps.gradle_props.outputs.version }}-fabric"
           changelog-file: "MINI_CHANGELOG.md"
-          dependencies: "%MDKG_FABRIC_DEPENDENCIES%"
+          dependencies: "%MDKG_FABRIC_PUBLISH_DEPENDENCIES%"
       - name: Publish All to Maven
         run: ./gradlew publish
       - name: Upload release assets

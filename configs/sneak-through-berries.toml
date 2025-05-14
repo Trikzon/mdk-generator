@@ -1,20 +1,20 @@
 [project]
 # should be the same as the project directory
-name = "ash-api"
-group = "com.diontryban.ash_api"
+name = "sneak-through-berries"
+group = "com.diontryban.sneak_through_berries"
 java_version = "21"
 gradle_version = "8.12"
 
 [mod]
-id = "ash_api"
-name = "Ash API"
+id = "sneak_through_berries"
+name = "Sneak Through Berries"
 author = "Trikzon"
-version = "21.0.4"
+version = "21.0.1"
 license = "LGPL-3.0-or-later"
 credits = ""
-description = "An API that provides an abstraction layer between the APIs of NeoForge and Fabric."
-curseforge_id = "838498"
-modrinth_id = "Q8xUICr6"
+description = "Sneak through Sweet Berry bushes without taking damage."
+curseforge_id = "324945"
+modrinth_id = "xq3wqd0E"
 
 [common]
 minecraft_version = "1.21"
@@ -35,7 +35,7 @@ loader_version = "0.16.14"
 loom_version = "1.10-SNAPSHOT"
 # https://modrinth.com/mod/modmenu/versions
 modmenu_version = "11.0.3"
-publish_dependencies = "fabric-api"
+publish_dependencies = ""
 gradle_dependencies = """"""
 
 [neoforge]
@@ -45,4 +45,7 @@ loader_version_range = "[4,)"
 # https://projects.neoforged.net/neoforged/moddevgradle
 moddevgradle_version = "2.0.88"
 publish_dependencies = ""
-gradle_dependencies = """"""
+gradle_dependencies = """
+    // Need to install Ars Nouveau and dependencies in 'runs/' to test in-dev.
+    compileOnly "com.hollingsworth.ars_nouveau:ars_nouveau-1.21.0:5.1.0.749"
+"""
