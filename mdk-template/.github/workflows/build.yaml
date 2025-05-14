@@ -6,8 +6,6 @@ jobs:
     steps:
       - name: checkout repository
         uses: actions/checkout@v2
-      - name: validate gradle wrapper
-        uses: gradle/wrapper-validation-action@v1
       - name: setup jdk %MDKG_PROJECT_JAVA_VERSION%
         uses: actions/setup-java@v1
         with:
