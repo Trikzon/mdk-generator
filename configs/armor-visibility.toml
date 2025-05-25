@@ -9,7 +9,7 @@ gradle_version = "8.12"
 id = "armor_visibility"
 name = "Armor Visibility"
 author = "Trikzon"
-version = "21.0.1"
+version = "21.1.0"
 license = "LGPL-3.0-or-later"
 credits = ""
 description = "View your and others' skins through armor"
@@ -17,20 +17,20 @@ curseforge_id = "387962"
 modrinth_id = "kvPlmCLX"
 
 [common]
-minecraft_version = "1.21"
-minecraft_version_range = "[1.21, 1.22)"
+minecraft_version = "1.21.1"
+minecraft_version_range = "[1.21.1, 1.22)"
 # https://projects.neoforged.net/neoforged/neoform
-neoform_version = "1.21-20240613.152323"
+neoform_version = "1.21.1-20240808.144430"
 # https://ldtteam.jfrog.io/ui/native/parchmentmc-public/org/parchmentmc/data/
-parchment_minecraft_version = "1.21"
-parchment_version = "2024.11.10"
+parchment_minecraft_version = "1.21.1"
+parchment_version = "2024.11.17"
 # https://maven.diontryban.com/#/releases/com/diontryban/ash_api
-ash_version = "21.0.4"
+ash_version = "21.1.0-beta"
 gradle_dependencies = """"""
 
 [fabric]
 # https://fabricmc.net/develop/
-version = "0.102.0+1.21"
+version = "0.116.0+1.21.1"
 loader_version = "0.16.14"
 loom_version = "1.10-SNAPSHOT"
 # https://modrinth.com/mod/modmenu/versions
@@ -40,7 +40,7 @@ gradle_dependencies = """"""
 
 [neoforge]
 # https://projects.neoforged.net/neoforged/neoforge
-version = "21.0.167"
+version = "21.1.172"
 loader_version_range = "[4,)"
 # https://projects.neoforged.net/neoforged/moddevgradle
 moddevgradle_version = "2.0.88"
