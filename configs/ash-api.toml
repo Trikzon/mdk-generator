@@ -9,38 +9,38 @@ gradle_version = "8.12"
 id = "ash_api"
 name = "Ash API"
 author = "Trikzon"
-version = "21.1.0"
+version = "21.2.0"
 license = "LGPL-3.0-or-later"
 credits = ""
-description = "An API that provides an abstraction layer between the APIs of NeoForge and Fabric."
+description = "An API that provides an abstraction layer between Fabric and NeoForge APIs."
 curseforge_id = "838498"
 modrinth_id = "Q8xUICr6"
 
 [common]
-minecraft_version = "1.21.1"
-minecraft_version_range = "[1.21.1, 1.22)"
+minecraft_version = "1.21.2"
+minecraft_version_range = "[1.21.2, 1.22)"
 # https://projects.neoforged.net/neoforged/neoform
-neoform_version = "1.21.1-20240808.144430"
+neoform_version = "1.21.2-20241022.151510"
 # https://ldtteam.jfrog.io/ui/native/parchmentmc-public/org/parchmentmc/data/
-parchment_minecraft_version = "1.21.1"
-parchment_version = "2024.11.17"
+parchment_minecraft_version = "1.21.3"
+parchment_version = "2024.12.07"
 # https://maven.diontryban.com/#/releases/com/diontryban/ash_api
 ash_version = ""
 gradle_dependencies = """"""
 
 [fabric]
 # https://fabricmc.net/develop/
-version = "0.116.0+1.21.1"
+version = "0.106.1+1.21.2"
 loader_version = "0.16.14"
 loom_version = "1.10-SNAPSHOT"
 # https://modrinth.com/mod/modmenu/versions
-modmenu_version = "11.0.3"
+modmenu_version = "12.0.0"
 publish_dependencies = "fabric-api"
 gradle_dependencies = """"""
 
 [neoforge]
 # https://projects.neoforged.net/neoforged/neoforge
-version = "21.1.172"
+version = "21.2.1-beta"
 loader_version_range = "[4,)"
 # https://projects.neoforged.net/neoforged/moddevgradle
 moddevgradle_version = "2.0.88"
